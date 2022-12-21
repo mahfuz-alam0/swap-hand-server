@@ -12,11 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// BD_USER
-// DB_PASS
-// ACCESS_TOKEN
-
-
 
 const uri = `mongodb+srv://${process.env.BD_USER}:${process.env.DB_PASS}@cluster0.3njemyu.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -141,8 +136,6 @@ async function run() {
                 res.send(data)
             }
         });
-
-        
 
         app.get('/users/seller/:email', async (req, res) => {
             const email = req.params.email;
@@ -341,7 +334,6 @@ async function run() {
     }
     finally {
 
-        // await client.close();
     }
 }
 
